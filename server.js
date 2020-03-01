@@ -24,7 +24,7 @@ mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then((
 app.use(passport.initialize());
 
 //Passport config
-require("./config/passport")(passport)
+require("./config/passport", passport);
 
 //Routes
 app.use("/api/users", users);
