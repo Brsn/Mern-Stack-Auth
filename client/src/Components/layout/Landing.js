@@ -9,7 +9,7 @@ class Landing extends Component {
                         <h4>
                             <b>Build</b> a login/auth app with the{" "}
                             <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-                            scratch
+                            scratchl
               </h4>
                         <p className="flow-text grey-text text-darken-1">
                             Create a (minimal) full-stack app with user authentication via
