@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+
+
 class Register extends Component {
     constructor() {
         super();
@@ -16,7 +18,13 @@ class Register extends Component {
             errors: {}
         };
     }
-    componentWillReceiveProps(nextProps) {
+    componentDidMount() {
+        //If Logged in redirect to the dashboard page
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/dashboard");
+        }
+    }
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -143,6 +151,8 @@ const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });
+
+
 export default connect(
     mapStateToProps,
     { registerUser }

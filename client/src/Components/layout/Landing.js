@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 class Landing extends Component {
     render() {
         return (
@@ -9,12 +10,12 @@ class Landing extends Component {
                         <h4>
                             <b>Build</b> a login/auth app with the{" "}
                             <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-                            scratchl
-              </h4>
+                            scratch
+            </h4>
                         <p className="flow-text grey-text text-darken-1">
                             Create a (minimal) full-stack app with user authentication via
                             passport and JWTs
-              </p>
+            </p>
                         <br />
                         <div className="col s6">
                             <Link
@@ -27,7 +28,7 @@ class Landing extends Component {
                                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                             >
                                 Register
-                </Link>
+              </Link>
                         </div>
                         <div className="col s6">
                             <Link
@@ -40,7 +41,7 @@ class Landing extends Component {
                                 className="btn btn-large btn-flat waves-effect white black-text"
                             >
                                 Log In
-                </Link>
+              </Link>
                         </div>
                     </div>
                 </div>
@@ -48,4 +49,5 @@ class Landing extends Component {
         );
     }
 }
+
 export default Landing;
