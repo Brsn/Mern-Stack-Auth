@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
-
-
 class Register extends Component {
     constructor() {
         super();
@@ -18,36 +16,42 @@ class Register extends Component {
             errors: {}
         };
     }
+
     componentDidMount() {
-        //If Logged in redirect to the dashboard page
+        // If logged in and user navigates to Register page, should redirect them to dashboard
         if (this.props.auth.isAuthenticated) {
             this.props.history.push("/dashboard");
         }
     }
-    UNSAFE_componentWillReceiveProps(nextProps) {
+
+    componentWillReceiveProps(nextProps) {
         if (nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
             });
         }
     }
+
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
+
     onSubmit = e => {
         e.preventDefault();
+
         const newUser = {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             password2: this.state.password2
         };
-        console.log(newUser);
+
         this.props.registerUser(newUser, this.props.history);
     };
-    render
+
     render() {
         const { errors } = this.state;
+
         return (
             <div className="container">
                 <div className="row">
@@ -142,16 +146,17 @@ class Register extends Component {
         );
     }
 }
+
 Register.propTypes = {
     registerUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
-}
+};
+
 const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });
-
 
 export default connect(
     mapStateToProps,
